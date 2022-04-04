@@ -1,3 +1,3 @@
 # Readme.MD
 
-First run `npm install --all`. Then run ``.
+After cloning the repository, run `npm install --all` to gather dependencies, then run `npm start` to view the site!
