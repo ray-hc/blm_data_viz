@@ -1,0 +1,17 @@
+[
+  {
+    "date": "2019-07-15",
+    "marketvalue": 50,
+    "value": 0
+  },
+  {
+    "date": "2019-07-16",
+    "marketvalue": 31.725876,
+    "value": -50
+  },
+  {
+    "date": "2019-07-17",
+    "marketvalue": 31.64809,
+    "value": -50
+  }
+]
