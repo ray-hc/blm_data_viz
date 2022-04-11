@@ -29,3 +29,16 @@
   * Layouts facilitate "reusable, flexible visualization techniques by generating abstract data structures" -- i.e. the `force network` layout or the `partition` layout.
   * Like React, they deal with the problem of speed through some sort of dependency-graph to figure out what to update
 * They benchmark D3 against Flash Player... throwback!
+
+
+## 39 Studies about Human Perception in 30 Minutes
+* "different visual systems promote different reference frames" -- when users see a line chart, they have a bias towards symmetry, and therefore always see the slope as closer to 45 degrees than it really is.
+* Bars -> Circles and Squares -> Cubes for comparing size.
+* "For each new component in bar charts, a reader needs an additional 1.7 seconds for processing." - Hollands and Spence
+* Users notice differences in bar graphs and trends in line graphs.
+* When people look at a line graph, they assume that higher means "more" or "better" no matter what.
+* For scatterplots, even just zooming out will make people assume there is more of a correlation than exists.
+* 3d visualizations, while pretty, can be harder to process.
+* Human personalities may affect the typpe of graphs they process easiest
+* A half-a-second delay in interactive-graphics is long enough to keep users from using all together.
+* 
