@@ -8,7 +8,7 @@ const loadChart = () => {
   const width = 960 - margin.left - margin.right;
   const height = 280 - margin.top - margin.bottom;
 
-  const formatMonth = d3.timeFormat('%b');
+  const formatMonth = d3.timeFormat('%b %d');
 
   const x = d3.scaleTime().range([0, width]);
   const y = d3.scaleLinear().range([height, 0]);
@@ -58,8 +58,8 @@ const loadChart = () => {
   };
 };
 
-const appendData = (chartDetails, year) => {
-  const parseDate = d3.timeParse('%m/%d/%Y');
+const appendData = (chartDetails, col) => {
+  const parseDate = d3.timeParse('%Y-%m-%d %H:%M:%S%Z'); // 2020-05-25 00:00:00-04:00
   const formatDate = d3.timeFormat('%b %d');
 
   const {
@@ -70,25 +70,25 @@ const appendData = (chartDetails, year) => {
     .area()
     .x((d) => { return x(d.date); })
     .y0(height)
-    .y1((d) => { return y(d.price); })
+    .y1((d) => { return y(d.twts); })
     .curve(d3.curveCardinal);
 
   const valueline = d3
     .line()
     .x((d) => { return x(d.date); })
-    .y((d) => { return y(d.price); })
+    .y((d) => { return y(d.twts); })
     .curve(d3.curveCardinal);
 
   d3.selectAll('path.area').remove();
   d3.selectAll('path.line').remove();
   d3.selectAll('.title').remove();
 
-  const filename = `https://raw.githubusercontent.com/jukuznets/datasets/main/usd-${year}.csv`;
+  const filename = 'https://raw.githubusercontent.com/ray-hc/blm_data_viz/main/datasets/twts_counts.csv';
   d3.csv(filename).then((data) => {
     data = data.reverse();
     data.forEach((d) => {
-      d.date = parseDate(d.date);
-      d.price = Number(d.price);
+      d.date = parseDate(d.Timestamp);
+      d.twts = Number(d[col]);
     });
 
     x.domain(
@@ -96,7 +96,7 @@ const appendData = (chartDetails, year) => {
     );
     y.domain([
       55,
-      d3.max(data, (d) => { return d.price; }),
+      d3.max(data, (d) => { return d.twts; }),
     ]);
 
     svg
@@ -143,7 +143,7 @@ const appendData = (chartDetails, year) => {
       .attr('x', width / 2)
       .attr('y', 0 - margin.top / 2)
       .attr('text-anchor', 'middle')
-      .text(`USD to RUB Exchange Rates, ${year}`);
+      .text(`${col}`);
 
     const focus = svg
       .append('g')
@@ -188,36 +188,36 @@ const appendData = (chartDetails, year) => {
 
       focus
         .select('circle.y')
-        .attr('transform', `translate(${x(d.date)},${y(d.price)})`);
+        .attr('transform', `translate(${x(d.date)},${y(d.twts)})`);
 
       focus
         .select('text.y1')
-        .attr('transform', `translate(${x(d.date)},${y(d.price)})`)
-        .text(d.price);
+        .attr('transform', `translate(${x(d.date)},${y(d.twts)})`)
+        .text(d.twts);
 
       focus
         .select('text.y2')
-        .attr('transform', `translate(${x(d.date)},${y(d.price)})`)
-        .text(d.price);
+        .attr('transform', `translate(${x(d.date)},${y(d.twts)})`)
+        .text(d.twts);
 
       focus
         .select('text.y3')
-        .attr('transform', `translate(${x(d.date)},${y(d.price)})`)
+        .attr('transform', `translate(${x(d.date)},${y(d.twts)})`)
         .text(formatDate(d.date));
 
       focus
         .select('text.y4')
-        .attr('transform', `translate(${x(d.date)},${y(d.price)})`)
+        .attr('transform', `translate(${x(d.date)},${y(d.twts)})`)
         .text(formatDate(d.date));
 
       focus
         .select('.x')
-        .attr('transform', `translate(${x(d.date)},${y(d.price)})`)
-        .attr('y2', height - y(d.price));
+        .attr('transform', `translate(${x(d.date)},${y(d.twts)})`)
+        .attr('y2', height - y(d.twts));
 
       focus
         .select('.y')
-        .attr('transform', `translate(${width * -1},${y(d.price)})`)
+        .attr('transform', `translate(${width * -1},${y(d.twts)})`)
         .attr('x2', width + width);
     }
 

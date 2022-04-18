@@ -33,15 +33,15 @@ const LineChart = () => {
       <div id="root" ref={d3Ref}>
         <div id="options">
           <label>
-            <input name="radio" type="radio" onChange={() => { appendData(chartDetails, 2018); setCheckedVal(0); }} checked={checkedVal === 0} />
+            <input name="radio" type="radio" onChange={() => { appendData(chartDetails, 'AllAdopters'); setCheckedVal(0); }} checked={checkedVal === 0} />
             2018
           </label>
           <label>
-            <input name="radio" type="radio" onChange={() => { appendData(chartDetails, 2019); setCheckedVal(1); }} checked={checkedVal === 1} />
+            <input name="radio" type="radio" onChange={() => { appendData(chartDetails, 'GeoAdopters'); setCheckedVal(1); }} checked={checkedVal === 1} />
             2019
           </label>
           <label>
-            <input name="radio" type="radio" onChange={() => { appendData(chartDetails, 2020); setCheckedVal(2); }} checked={checkedVal === 2} />
+            <input name="radio" type="radio" onChange={() => { appendData(chartDetails, 'MnAdopters'); setCheckedVal(2); }} checked={checkedVal === 2} />
             2020
           </label>
         </div>
