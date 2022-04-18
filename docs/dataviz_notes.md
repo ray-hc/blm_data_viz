@@ -31,6 +31,12 @@
 * They benchmark D3 against Flash Player... throwback!
 
 
+## A Tour through the Visualization Zoo. Jeffrey Heer, Michael Bostock, and Vadim Ogievetsky. ACM Queue, 8(5). 2010.
+* Less theory, and more a description of various graph styles.
+* Some worthwhile to explore:
+  * SPLOM --> scatter plot matrix, where you put multiple next to each other w/ similiar axes. A good way to display some of my data.
+  * Parallel coordinates graphs are another way 
+
 ## 39 Studies about Human Perception in 30 Minutes
 * "different visual systems promote different reference frames" -- when users see a line chart, they have a bias towards symmetry, and therefore always see the slope as closer to 45 degrees than it really is.
 * Bars -> Circles and Squares -> Cubes for comparing size.
