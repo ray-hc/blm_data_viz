@@ -90,6 +90,7 @@ const appendData = (chartDetails, col) => {
       d.date = parseDate(d.Timestamp);
       d.twts = Number(d[col]);
     });
+    console.log(data[0]);
 
     x.domain(
       d3.extent(data, (d) => { return d.date; }),
