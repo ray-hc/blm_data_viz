@@ -5,10 +5,11 @@ const Nav = (props) => {
   return (
     <nav>
       <ul>
-        <li><NavLink to="/" exact>Home</NavLink></li>
-        <li><NavLink to="/about">About</NavLink></li>
-        <li><NavLink to="/test/id1">test id1</NavLink></li>
-        <li><NavLink to="/test/id2">test id2</NavLink></li>
+        <li><NavLink to="/" exact>Introduction</NavLink></li>
+        <li><NavLink to="/findings">Key Findings</NavLink></li>
+        <li><NavLink to="/methods">Methods</NavLink></li>
+        <li><NavLink to="/related-work">Related Work</NavLink></li>
+        <li><NavLink to="/simulations">Simulations</NavLink></li>
       </ul>
     </nav>
   );

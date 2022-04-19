@@ -1,66 +1,11 @@
+/* eslint-disable import/prefer-default-export */
 /* eslint-disable no-param-reassign */
 import * as d3 from 'd3';
 
-const loadChart = () => {
-  const margin = {
-    top: 40, right: 80, bottom: 60, left: 50,
-  };
-  const width = 960 - margin.left - margin.right;
-  const height = 280 - margin.top - margin.bottom;
-
-  const formatMonth = d3.timeFormat('%b %d');
-
-  const x = d3.scaleTime().range([0, width]);
-  const y = d3.scaleLinear().range([height, 0]);
-
-  const svg = d3
-    .select('#root')
-    .append('svg')
-    .attr(
-      'viewBox',
-      `0 0 ${width + margin.left + margin.right} ${
-        height + margin.top + margin.bottom}`,
-    )
-    .append('g')
-    .attr('transform', `translate(${margin.left},${margin.top})`);
-
-  svg
-    .append('g')
-    .attr('class', 'x axis')
-    .attr('transform', `translate(0,${height})`)
-    .call(d3.axisBottom(x).tickFormat(formatMonth));
-
-  svg.append('g').attr('class', 'y axis').call(d3.axisLeft(y));
-
-  svg
-    .append('text')
-    .attr('transform', 'rotate(-90)')
-    .attr('y', 0 - margin.left)
-    .attr('x', 0 - height / 2)
-    .attr('dy', '1em')
-    .style('text-anchor', 'middle')
-    .text('Whatever Man');
-
-  svg
-    .append('a')
-    .attr('xlink:href', (d) => {
-      return 'https://www.moex.com/ru/index/rtsusdcur.aspx?tid=2552';
-    })
-    .attr('class', 'subtitle')
-    .attr('target', '_blank')
-    .append('text')
-    .attr('x', 0)
-    .attr('y', height + 50)
-    .text('Source: Moscow Exchange');
-
-  return {
-    svg, margin, height, width, x, y,
-  };
-};
-
-const appendData = (chartDetails, col) => {
+const appendData = (chartDetails, col, filename) => {
   const parseDate = d3.timeParse('%Y-%m-%d %H:%M:%S%Z'); // 2020-05-25 00:00:00-04:00
-  const formatDate = d3.timeFormat('%b %d');
+  const formatDate = d3.timeFormat('%b%d');
+  const formatDateWithHr = d3.timeFormat('%b%d %H%p');
 
   const {
     svg, margin, height, width, x, y,
@@ -70,41 +15,39 @@ const appendData = (chartDetails, col) => {
     .area()
     .x((d) => { return x(d.date); })
     .y0(height)
-    .y1((d) => { return y(d.twts); })
-    .curve(d3.curveCardinal);
+    .y1((d) => { return y(d.dataCol); });
 
   const valueline = d3
     .line()
     .x((d) => { return x(d.date); })
-    .y((d) => { return y(d.twts); })
-    .curve(d3.curveCardinal);
+    .y((d) => { return y(d.dataCol); });
 
-  d3.selectAll('path.area').remove();
-  d3.selectAll('path.line').remove();
-  d3.selectAll('.title').remove();
+  svg.selectAll('path.area').remove();
+  svg.selectAll('path.line').remove();
+  svg.selectAll('.title').remove();
 
-  const filename = 'https://raw.githubusercontent.com/ray-hc/blm_data_viz/main/datasets/twts_counts.csv';
   d3.csv(filename).then((data) => {
-    data = data.reverse();
+    // Convert all data objs. into correct D3 format
     data.forEach((d) => {
       d.date = parseDate(d.Timestamp);
-      d.twts = Number(d[col]);
+      d.dataCol = Number(d[col]);
     });
-    console.log(data[0]);
 
+    // Update domain, range accordingly.
     x.domain(
       d3.extent(data, (d) => { return d.date; }),
     );
     y.domain([
-      55,
-      d3.max(data, (d) => { return d.twts; }),
+      d3.min(data, (d) => { return d.dataCol; }) - 10,
+      d3.max(data, (d) => { return d.dataCol; }),
     ]);
 
+    // Then up
     svg
       .select('.x.axis')
       .transition()
       .duration(750)
-      .call(d3.axisBottom(x).tickFormat(d3.timeFormat('%b')));
+      .call(d3.axisBottom(x).tickFormat(formatDate));
     svg
       .select('.y.axis')
       .transition()
@@ -144,7 +87,7 @@ const appendData = (chartDetails, col) => {
       .attr('x', width / 2)
       .attr('y', 0 - margin.top / 2)
       .attr('text-anchor', 'middle')
-      .text(`${col}`);
+      .text(`${col} Over Time`);
 
     const focus = svg
       .append('g')
@@ -189,36 +132,36 @@ const appendData = (chartDetails, col) => {
 
       focus
         .select('circle.y')
-        .attr('transform', `translate(${x(d.date)},${y(d.twts)})`);
+        .attr('transform', `translate(${x(d.date)},${y(d.dataCol)})`);
 
       focus
         .select('text.y1')
-        .attr('transform', `translate(${x(d.date)},${y(d.twts)})`)
-        .text(d.twts);
+        .attr('transform', `translate(${x(d.date)},${y(d.dataCol)})`)
+        .text(`${d.dataCol} ${col}`);
 
       focus
         .select('text.y2')
-        .attr('transform', `translate(${x(d.date)},${y(d.twts)})`)
-        .text(d.twts);
+        .attr('transform', `translate(${x(d.date)},${y(d.dataCol)})`)
+        .text(`${d.dataCol} ${col}`);
 
       focus
         .select('text.y3')
-        .attr('transform', `translate(${x(d.date)},${y(d.twts)})`)
-        .text(formatDate(d.date));
+        .attr('transform', `translate(${x(d.date)},${y(d.dataCol)})`)
+        .text(formatDateWithHr(d.date));
 
       focus
         .select('text.y4')
-        .attr('transform', `translate(${x(d.date)},${y(d.twts)})`)
-        .text(formatDate(d.date));
+        .attr('transform', `translate(${x(d.date)},${y(d.dataCol)})`)
+        .text(formatDateWithHr(d.date));
 
       focus
         .select('.x')
-        .attr('transform', `translate(${x(d.date)},${y(d.twts)})`)
-        .attr('y2', height - y(d.twts));
+        .attr('transform', `translate(${x(d.date)},${y(d.dataCol)})`)
+        .attr('y2', height - y(d.dataCol));
 
       focus
         .select('.y')
-        .attr('transform', `translate(${width * -1},${y(d.twts)})`)
+        .attr('transform', `translate(${width * -1},${y(d.dataCol)})`)
         .attr('x2', width + width);
     }
 
@@ -238,4 +181,4 @@ const appendData = (chartDetails, col) => {
   });
 };
 
-export { appendData, loadChart };
+export { appendData };
