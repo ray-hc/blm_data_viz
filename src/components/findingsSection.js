@@ -12,6 +12,15 @@ const FindingsSection = (props) => {
   return (
     <div>
       <h1>Key Findings</h1>
+      #BlackLivesMatter quickly became one of the most powerful rallying cries online, ever.
+      <DtLineChart
+        chartId="adopterCumulChart"
+        filename="https://raw.githubusercontent.com/ray-hc/blm_data_viz/main/datasets/twts_counts.csv"
+        dCols={['MnAdopters', 'GeoAdopters', 'AllAdopters']}
+        heightRatio={0.4}
+        yAxisLabel="Cumulative Proportion"
+        title="Minnesotan, Geolocated, Overall Adoption Rate"
+      />
       <h2>Adopter Characteristics Over Time</h2>
       <p>{text}</p>
       <DtLineChartMultiView
@@ -19,13 +28,18 @@ const FindingsSection = (props) => {
         filename="https://raw.githubusercontent.com/ray-hc/blm_data_viz/main/datasets/mean_users_by_twts.csv"
         dCols={['Following', 'Followers']}
         heightRatio={0.4}
+        yAxisLabel="Median"
       />
+      <p>Geolocated Adopters had a relatively similiar rate of adoption as the overall adoption pool. However, users from Minnesota, home to Minneapolis, tended to adopt much earlier than others. </p>
       <DtLineChart
         chartId="adopterCumulChart"
         filename="https://raw.githubusercontent.com/ray-hc/blm_data_viz/main/datasets/twts_counts.csv"
-        dCols={['AllAdopters', 'GeoAdopters', 'MnAdopters']}
+        dCols={['MnAdopters', 'GeoAdopters', 'AllAdopters']}
         heightRatio={0.4}
+        yAxisLabel="Cumulative Proportion"
+        title="Minnesotan, Geolocated, Overall Adoption Rate"
       />
+      <p>Need to add a set of labels!</p>
     </div>
   );
 };

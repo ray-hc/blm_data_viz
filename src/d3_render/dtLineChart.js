@@ -56,7 +56,7 @@ const loadChart = (chartSelector, yAxisLabel, heightRatio) => {
   };
 };
 
-const appendData = (chartDetails, cols, filename) => {
+const appendData = (chartDetails, cols, filename, title) => {
   const parseDate = d3.timeParse('%Y-%m-%d %H:%M:%S%Z'); // 2020-05-25 00:00:00-04:00
   const formatDate = d3.timeFormat('%b%d');
   const formatDateWithHr = d3.timeFormat('%b%d %H%p');
@@ -94,7 +94,7 @@ const appendData = (chartDetails, cols, filename) => {
       d3.extent(data, (d) => { return d.date; }),
     );
     y.domain([
-      dataMin - 10,
+      dataMin,
       dataMax,
     ]);
 
@@ -156,7 +156,7 @@ const appendData = (chartDetails, cols, filename) => {
       .attr('x', width / 2)
       .attr('y', 0 - margin.top / 2)
       .attr('text-anchor', 'middle')
-      .text(`${cols} Over Time`);
+      .text(title);
 
     const foci = [];
 

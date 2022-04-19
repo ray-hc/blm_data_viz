@@ -23,7 +23,7 @@ const DtLineChartMultiView = (props) => {
     console.log(mChartDetails);
     setChartDetails(mChartDetails);
     setCheckedVal(0);
-    appendData(mChartDetails, 'Followers', filename);
+    appendData(mChartDetails, 'Following', filename, 'Median "Following" Over Time');
     console.log('Mounted D3');
   }, []);
 
@@ -43,7 +43,7 @@ const DtLineChartMultiView = (props) => {
           <input
             name="radio"
             type="radio"
-            onChange={() => { appendData(chartDetails, col, filename); setCheckedVal(i); }}
+            onChange={() => { appendData(chartDetails, col, filename, `Median "${col}" Over Time`); setCheckedVal(i); }}
             checked={checkedVal === i}
           />
           {col}

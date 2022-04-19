@@ -2,7 +2,7 @@
 /* eslint-disable no-param-reassign */
 import * as d3 from 'd3';
 
-const appendData = (chartDetails, col, filename) => {
+const appendData = (chartDetails, col, filename, title) => {
   const parseDate = d3.timeParse('%Y-%m-%d %H:%M:%S%Z'); // 2020-05-25 00:00:00-04:00
   const formatDate = d3.timeFormat('%b%d');
   const formatDateWithHr = d3.timeFormat('%b%d %H%p');
@@ -87,7 +87,7 @@ const appendData = (chartDetails, col, filename) => {
       .attr('x', width / 2)
       .attr('y', 0 - margin.top / 2)
       .attr('text-anchor', 'middle')
-      .text(`${col} Over Time`);
+      .text(title);
 
     const focus = svg
       .append('g')

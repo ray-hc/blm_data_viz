@@ -12,15 +12,15 @@ const DtLineChart = (props) => {
   // const [chartDetails, setChartDetails] = useState(null);
 
   const {
-    chartId, filename, dCols, heightRatio,
+    chartId, filename, dCols, heightRatio, yAxisLabel, title,
   } = props;
 
   // Mount Effect
   useEffect(() => {
-    const mChartDetails = loadChart(`#${chartId}`, 'Median', heightRatio);
+    const mChartDetails = loadChart(`#${chartId}`, yAxisLabel, heightRatio);
     console.log(mChartDetails);
     // setChartDetails(mChartDetails);
-    appendData(mChartDetails, dCols, filename);
+    appendData(mChartDetails, dCols, filename, title);
     console.log('Mounted D3');
   }, []);
 
