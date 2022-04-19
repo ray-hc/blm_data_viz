@@ -12,14 +12,14 @@ const FindingsSection = (props) => {
   return (
     <div>
       <h1>Key Findings</h1>
-      #BlackLivesMatter quickly became one of the most powerful rallying cries online, ever.
+      <p>#BlackLivesMatter quickly became one of the most powerful rallying cries online, ever.</p>
       <DtLineChart
-        chartId="adopterCumulChart"
-        filename="https://raw.githubusercontent.com/ray-hc/blm_data_viz/main/datasets/twts_counts.csv"
-        dCols={['MnAdopters', 'GeoAdopters', 'AllAdopters']}
+        chartId="twtCountChart"
+        filename="https://raw.githubusercontent.com/ray-hc/blm_data_viz/main/datasets/twts_raw_count.csv"
+        dCols={['Tw_ID']}
         heightRatio={0.4}
-        yAxisLabel="Cumulative Proportion"
-        title="Minnesotan, Geolocated, Overall Adoption Rate"
+        yAxisLabel="Number of Tweets"
+        title="Total #BLM Tweets Per Hour"
       />
       <h2>Adopter Characteristics Over Time</h2>
       <p>{text}</p>
@@ -37,7 +37,7 @@ const FindingsSection = (props) => {
         dCols={['MnAdopters', 'GeoAdopters', 'AllAdopters']}
         heightRatio={0.4}
         yAxisLabel="Cumulative Proportion"
-        title="Minnesotan, Geolocated, Overall Adoption Rate"
+        title="Cumulative Adoptions: Minnesotan, Geolocated, All "
       />
       <p>Need to add a set of labels!</p>
     </div>
