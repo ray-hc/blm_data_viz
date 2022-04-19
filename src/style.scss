@@ -162,16 +162,37 @@ path.line:nth-of-type(4) {
 path.line:nth-of-type(6) {
   stroke: yellow;
 }
+path.line:nth-of-type(8) {
+  stroke: rgb(47, 188, 64);
+}
+path.line:nth-of-type(10) {
+  stroke: rgb(255, 0, 221);
+}
+path.line:nth-of-type(12) {
+  stroke: rgb(0, 0, 0);
+}
 
 path.area {
   fill: rgb(98, 98, 255);
-  opacity: 0.2;
+  opacity: 0.1;
 }
 path.area:nth-of-type(3) {
   fill: red;
 }
 path.area:nth-of-type(5) {
   fill: yellow;
+}
+
+path.area:nth-of-type(7) {
+  fill: rgb(47, 188, 64);
+}
+
+path.area:nth-of-type(9) {
+  fill: rgb(255, 0, 221);
+}
+
+path.area:nth-of-type(11) {
+  fill: rgb(0, 0, 0);
 }
 
 .axis path,

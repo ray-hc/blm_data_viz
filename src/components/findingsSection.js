@@ -39,7 +39,19 @@ const FindingsSection = (props) => {
         yAxisLabel="Cumulative Proportion"
         title="Cumulative Adoptions: Minnesotan, Geolocated, All "
       />
-      <p>Need to add a set of labels!</p>
+      <h6>Blue=Minnesota, Red=GeoAdopters, Yellow=AllAdopters</h6>
+      <p>Need to add a set of labels and fix overlapping labels on interaction issue!</p>
+      <p>By far, the highest rate of adoption per-capita were in big cities, which had 10x the level of adoption as predominantly rural, White areas.</p>
+      <DtLineChart
+        chartId="clusterPerCapChart"
+        filename="https://raw.githubusercontent.com/ray-hc/blm_data_viz/main/datasets/AdopPerCapByCluster.csv"
+        dCols={['BigCities', 'SubRur.Poorer', 'MidCities', 'Rur.White', 'Sub.Blacker', 'Sub.Richer']}
+        heightRatio={0.4}
+        yAxisLabel="Cumulative Proportion"
+        title="Adoptions Per Capita by Cluster"
+      />
+      <h6>Blue=BigCities, Red=SubRur.Poorer, Yellow=MidCities, Green=Rur.White, Pink=Sub.Blacker, Black=Sub.Richer</h6>
+
     </div>
   );
 };
