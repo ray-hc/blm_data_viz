@@ -66,8 +66,6 @@ const appendData = (chartDetails, cols, filename, title) => {
     svg, margin, height, width, x, y,
   } = chartDetails;
 
-  console.log(svg);
-
   // accessibility
   svg.attr('aria_label', title);
 
