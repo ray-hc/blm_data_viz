@@ -59,14 +59,16 @@
 ## Spence R, Tweedie L. The Attribute Explorer: information synthesis via exploration. 1998.
 * Data visualization is critical to exploration and revision of issues.
 * Dynamic queries are one way to make this happen.
+* This is an iconic early article on how data visualization is important not just for 
 
 # Jung et al. Communicating Visualizations without Visuals: Investigation of Visualization Alternative Text for People with Visual Impairments. 2021.
 * People with visual impairments generally want to attempt vsualize the actual chart, even if they can't see it. Citing which type of chart it is, and making information like what is on the X-, Y- axis available is helpful.
 * Having access to the underlined datapoints was universally desired by study participants, and table formats can be best ingested by screen-readers.
 * Table caption should indicate what way the table was sorted to make it more navigable.
 * Data sonification is an experimental, rapidly expanding subfield of accessibility whereby users can "hear" data.
+* Redundant encoding is helpful -- for example, encoding class by both symbol and color.
 
 # Schwabish, Jonathan, and Alice Feng. 2020. “Applying Racial Equity Awareness in Data Visualization.”
-* Consider terminology
-* Be conscious about ordering, and note which groups excluded (trans. people, etc.)
-* redundant encoding
+* Make sure you are using the appropriate terminology (i.e. people with disabilities vs. disabled people)
+* Data always has an opinion, especially based on what it does not incldue. For example, Census data doesn't have options for non-binary. Recognize the limits of your data, maybe in a caption, to ensure visibility.
+* Be conscious about the order in which you show data. If you're comparing by racial groups, for example, you don't need to put White first always.
