@@ -23,16 +23,17 @@ const loadChart = (chartSelector, yAxisLabel, heightRatio) => {
     )
     .append('g')
     .attr('transform', `translate(${margin.left},${margin.top})`);
-
   svg
     .append('g')
     .attr('class', 'x axis')
+    .attr('aria-label', 'x axis')
     .attr('transform', `translate(0,${height})`)
     .call(d3.axisBottom(x).tickFormat(formatMonth));
 
   svg
     .append('g')
     .attr('class', 'y axis')
+    .attr('aria-label', 'y axis')
     .call(d3.axisLeft(y));
 
   svg
@@ -67,9 +68,13 @@ const appendData = (chartDetails, cols, filename, title) => {
 
   console.log(svg);
 
+  // accessibility
+  svg.attr('aria_label', title);
+
   svg.selectAll('path.area').remove();
   svg.selectAll('path.line').remove();
   svg.selectAll('.title').remove();
+  svg.selectAll('desc').remove();
 
   d3.csv(filename).then((data) => {
     // Convert all data objs. into correct D3 format
@@ -259,6 +264,10 @@ const appendData = (chartDetails, cols, filename, title) => {
         });
       })
       .on('touchmove mousemove', mouseMove);
+
+    svg
+      .append('desc')
+      .text('Hi!');
   });
 };
 

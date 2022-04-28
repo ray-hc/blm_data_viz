@@ -47,4 +47,26 @@
 * 3d visualizations, while pretty, can be harder to process.
 * Human personalities may affect the typpe of graphs they process easiest
 * A half-a-second delay in interactive-graphics is long enough to keep users from using all together.
-* 
+
+
+## Viral Visualizations: How Coronavirus Skeptics Use Orthodox Data Practices to Promote Unorthodox Science Online. Crystal Lee, Tanya Yang, Gabrielle Inchoco, Graham M. Jones, Arvind Satyanarayan. ACM CHI. 2021.
+* "Data visualizations are not a neutral window onto an observer-independent reality; during a pandemic, they are an arena of political struggle."
+* For COVID skeptics, "to counter-visualize is to engage in an act of resistance against the stifling influence of central government, big business, and liberal academia"
+* What to do about this?
+  * Recognize that you may not be able to control how people react to visualizations and adjust accordingly.
+  * Author recommends highlighitng the uncertainty of data instead of clean expressiviity, since those skeptical of academia don't trust you to begin with.
+
+## Spence R, Tweedie L. The Attribute Explorer: information synthesis via exploration. 1998.
+* Data visualization is critical to exploration and revision of issues.
+* Dynamic queries are one way to make this happen.
+
+# Jung et al. Communicating Visualizations without Visuals: Investigation of Visualization Alternative Text for People with Visual Impairments. 2021.
+* People with visual impairments generally want to attempt vsualize the actual chart, even if they can't see it. Citing which type of chart it is, and making information like what is on the X-, Y- axis available is helpful.
+* Having access to the underlined datapoints was universally desired by study participants, and table formats can be best ingested by screen-readers.
+* Table caption should indicate what way the table was sorted to make it more navigable.
+* Data sonification is an experimental, rapidly expanding subfield of accessibility whereby users can "hear" data.
+
+# Schwabish, Jonathan, and Alice Feng. 2020. “Applying Racial Equity Awareness in Data Visualization.”
+* Consider terminology
+* Be conscious about ordering, and note which groups excluded (trans. people, etc.)
+* redundant encoding
