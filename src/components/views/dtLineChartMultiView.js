@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect, useRef, useState } from 'react';
-import { loadChart } from '../../d3_render/dtLineChart';
-import { appendData } from '../../d3_render/dtLineChartMultiView';
+import { loadChart } from '../../d3render/dtLineChartD3';
+import { appendData } from '../../d3render/dtLineChartMultiViewD3';
 
 /*
 Adapted from https://github.com/jukuznets/d3-line-chart/tree/gh-pages

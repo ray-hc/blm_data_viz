@@ -2,6 +2,9 @@
 import React from 'react';
 import DtLineChartMultiView from './views/dtLineChartMultiView';
 import DtLineChart from './views/dtLineChart';
+import GeoChart from './views/geoChart';
+import EnableAudioButton from './enableAudioButton';
+import MusicScale from './musicScale';
 
 const FindingsSection = (props) => {
   const text = `The 'incubators', those users who were engaging with #BLM 
@@ -11,8 +14,13 @@ const FindingsSection = (props) => {
 
   return (
     <div>
+      <EnableAudioButton />
       <h1>Key Findings</h1>
       <p>#BlackLivesMatter quickly became one of the most powerful rallying cries online, ever.</p>
+      <MusicScale dMin={0} dMax={40000} />
+      <GeoChart
+        chartId="world"
+      />
       <DtLineChart
         chartId="twtCountChart"
         filename="https://raw.githubusercontent.com/ray-hc/blm_data_viz/main/datasets/twts_raw_count.csv"

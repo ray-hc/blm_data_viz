@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React, { useEffect } from 'react';
-import { loadTable } from '../../d3_render/tableAsCSV';
+import { loadTable } from '../../d3render/tableAsCsvD3';
 
 /*
 Adapted from https://github.com/jukuznets/d3-line-chart/tree/gh-pages

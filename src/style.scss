@@ -10,6 +10,7 @@
 
 $darkMainColor: #0f0f0f;
 $lightMainColor: #fafafa;
+$boxShadow: #00000052 1px 5px 10px 0px;
 
 
 html,
@@ -215,4 +216,39 @@ circle.y {
 
 table, th, td {
   border: 1px solid;
+}
+
+.country {
+  fill: none;
+  stroke: black;
+}
+
+.tooltip {
+  position: fixed;
+  box-shadow: #00000052 1px 5px 10px 0px;
+  background-color: lightblue;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.svg {
+  overflow: hidden;
+}
+
+.bubble {
+  opacity: 0.5;
+  fill:rgb(98, 98, 255);
+
+  &:hover {
+    opacity: 0.6;
+    fill:rgb(47, 188, 64);
+    stroke: black;
+    stroke-width: 1.0;
+  }
+}
+
+.sound-scale {
+  background-color: lightblue;
+  padding: 5px;
+  border-radius: 5px;
 }
