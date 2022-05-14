@@ -2,7 +2,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { loadChart, appendData } from '../../d3render/dtLineChartD3';
 import TableFromCSV from './tableFromCSV';
-import TonalChart from './tonalChart';
 
 /*
 Adapted from https://github.com/jukuznets/d3-line-chart/tree/gh-pages
@@ -36,7 +35,6 @@ const DtLineChart = (props) => {
     <>
       <button type="button" onClick={() => setTableVisible(!tableVisible)}>View as Table</button>
       <div id={chartId} ref={d3Ref} />
-      {tableVisible && <TonalChart chartId={`${chartId}_tonal`} />}
       {tableVisible && <TableFromCSV csvFilename={filename} />}
     </>
   );
