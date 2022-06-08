@@ -3,7 +3,6 @@
 import React, { useEffect, useState } from 'react';
 // import { loadChordX } from '../../d3render/chordD3';
 import { Button, ButtonGroup, ToggleButton } from 'react-bootstrap';
-import { First } from 'react-bootstrap/esm/PageItem';
 import { runModel, selectStartNodes } from '../../d3render/contagionD3';
 import { loadNetwork } from '../../d3render/networkD3';
 

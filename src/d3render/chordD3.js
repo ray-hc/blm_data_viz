@@ -1,4 +1,5 @@
 /* eslint-disable import/prefer-default-export */
+/* eslint-disable no-param-reassign */
 import * as d3 from 'd3';
 // eslint-disable-next-line react/no-deprecated
 import { edgesMatrix } from '../../datasets/edgesMatrix';

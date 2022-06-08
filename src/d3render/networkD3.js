@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable no-use-before-define */
 /* eslint-disable import/prefer-default-export */
 /* eslint-disable function-paren-newline */
@@ -222,4 +223,4 @@ const ticked = (svg) => {
     .attr('cy', (d) => { return d.y - circRadius / 2; });
 };
 
-export { loadNetwork };
+export { loadNetwork, downloadObjectAsJson };

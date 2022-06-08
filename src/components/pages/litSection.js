@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable max-len */
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -24,10 +25,11 @@ const LitSection = (props) => {
         technology allows many individuals
         across weak-tie networks to support movements while requiring little effort,
         and providing individuals with a feeling of self-fulfillment.
-      </p><p>Whereas collective action is governed by the formal structure of the movement,
+      </p>
+      <p>Whereas collective action is governed by the formal structure of the movement,
         connective action is ruled by the social network.
         <br />
-          </p>
+      </p>
       <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Examples of Connective Action</Accordion.Header>

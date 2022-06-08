@@ -1,4 +1,5 @@
 /* eslint-disable max-len */
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DtLineChart from '../d3-views/dtLineChart';

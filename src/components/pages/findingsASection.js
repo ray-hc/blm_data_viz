@@ -1,18 +1,13 @@
 /* eslint-disable max-len */
+/* eslint-disable react/no-unescaped-entities */
 import React from 'react';
 import { Link } from 'react-router-dom';
 import DtLineChartMultiView from '../d3-views/dtLineChartMultiView';
 import DtLineChart from '../d3-views/dtLineChart';
 import GeoChart from '../d3-views/geoChart';
-import EnableAudioButton from '../enableAudioButton';
 import MusicScale from '../musicScale';
 
 const FindingsASection = (props) => {
-  const text = `The 'incubators', those users who were engaging with #BLM 
-  before the surge in George Floyd-related activity, tend to be more active 
-  and connected than other users. As #BLM adoption rose on the 26th, 
-  hashtag users' median number of followers and following dropped.`;
-
   return (
     <div>
       <h1>Overall Trends</h1>
