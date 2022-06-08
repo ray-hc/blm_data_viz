@@ -56,7 +56,7 @@ const loadGeoChart = (width, height, id) => {
     });
 
   // Load the actual data!
-  d3.json('../../datasets/world_topojson.json')
+  d3.json('https://raw.githubusercontent.com/ray-hc/blm_data_viz/main/datasets/world_topojson.json')
     .then((mapData) => {
       d3.csv('https://raw.githubusercontent.com/ray-hc/blm_data_viz/main/datasets/country_counts_w_names.csv')
         .then((twtData) => {
