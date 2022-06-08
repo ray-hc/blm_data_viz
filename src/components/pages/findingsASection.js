@@ -22,7 +22,7 @@ const FindingsASection = (props) => {
       <DtLineChart
         chartId="twtCountChart"
         filename="https://raw.githubusercontent.com/ray-hc/blm_data_viz/main/datasets/twts_raw_count.csv"
-        dCols={['Tw_ID']}
+        dCols={['Tweets']}
         heightRatio={0.4}
         yAxisLabel="Number of Tweets"
         title="Total #BLM Tweets Per Hour"
