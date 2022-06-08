@@ -7,11 +7,13 @@
   src: url("https://raycrist.com/monument/MonumentExtended-Black.otf")
 }
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import "~bootstrap/scss/bootstrap";
+
 
 $darkMainColor: #0f0f0f;
 $lightMainColor: #fafafa;
 $boxShadow: #00000052 1px 5px 10px 0px;
-
+$layout-breakpoint-small: 960px;
 
 html,
 body {
@@ -22,7 +24,12 @@ body {
   background: $lightMainColor;
   color: $darkMainColor;
   font-size: 20px;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 16px;
+  }
 }
+
 
 #main {
   display: flex;
@@ -41,6 +48,10 @@ h1, h2, h3, h4 {
 
 h1 {
   font-size: 1.3rem;
+
+  @media only screen and (max-width: 600px) {
+    font-size: 1.1rem;
+  }
 }
 
 h2 {
@@ -60,17 +71,14 @@ ul {
   width: 100%;
 }
 
+$bigArrow: 28px;
+$smallArrow: 12px;
+
 .titleSection {
   width: 250px;
   background: #0f0f0f;
   color: #f5f5f5;
-
-  > div {
-    position: fixed;
-    width: 250px;
-    top: 0;
-    left: 0;
-  }
+  z-index: 100;
 
   .divider {
     background: #f5f5f5;
@@ -85,23 +93,37 @@ ul {
     grid-template-columns: 20px auto;
     justify-content: start;
     align-items: center;
+
+    @media only screen and (max-width: 600px) {
+      grid-template-columns: 5px auto;
+    }
   }
 
   li:before {
     display: block;
     content: ' ';
     background-image: url('extra/arrow.svg');
-    background-size: 28px 28px;
+    background-size: $bigArrow $bigArrow;
     position: relative;
-    height: 28px;
-    width: 28px;
+    height: $bigArrow;
+    width: $bigArrow;
     left: -15px;
+
+    @media only screen and (max-width: 600px) {
+      background-size: $smallArrow $smallArrow;
+      height: $smallArrow;
+      width: $smallArrow;
+    }
   }
 
   a {
     color: white;
     font-size: 1.2rem;
     margin-bottom: .25rem;
+
+    @media only screen and (max-width: 600px) {
+      font-size: 1.0rem;
+    }
 
     &.active {
       color: grey;
@@ -155,45 +177,45 @@ path.line {
   stroke-width: 3px;
 }
 path.line:nth-of-type(2) {
-  stroke: rgb(98, 98, 255);
+  stroke: rgb(90, 210, 190);
 }
 path.line:nth-of-type(4) {
   stroke: red;
 }
 path.line:nth-of-type(6) {
-  stroke: yellow;
+  stroke: blue;
 }
 path.line:nth-of-type(8) {
-  stroke: rgb(47, 188, 64);
+  stroke: black;
 }
 path.line:nth-of-type(10) {
-  stroke: rgb(255, 0, 221);
+  stroke: rgb(255, 112, 236);
 }
 path.line:nth-of-type(12) {
-  stroke: rgb(0, 0, 0);
+  stroke: rgb(255, 207, 34);
 }
 
 path.area {
-  fill: rgb(98, 98, 255);
+  fill: rgb(90, 210, 190);
   opacity: 0.1;
 }
 path.area:nth-of-type(3) {
   fill: red;
 }
 path.area:nth-of-type(5) {
-  fill: yellow;
+  fill: blue;
 }
 
 path.area:nth-of-type(7) {
-  fill: rgb(47, 188, 64);
+  fill: rgb(0, 0, 0);
 }
 
 path.area:nth-of-type(9) {
-  fill: rgb(255, 0, 221);
+  fill: rgb(255, 112, 236);
 }
 
 path.area:nth-of-type(11) {
-  fill: rgb(0, 0, 0);
+  fill: rgb(255, 207, 34);
 }
 
 .axis path,
@@ -248,7 +270,63 @@ table, th, td {
 }
 
 .sound-scale {
-  background-color: lightblue;
+  background-color: rgb(96, 104, 180);
   padding: 5px;
   border-radius: 5px;
+}
+
+#network {
+
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+
+  }
+
+  input {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
+}
+
+#networkParams {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background-color: grey;
+  border-radius: 5px;
+  max-width: 250px;
+}
+
+.blockQt{
+  width: 80%;
+  text-align: left;
+  font-size: 2rem;
+}
+
+.blockQtCap{
+  text-align: right;
+}
+
+.next {
+  color: black;
+  font-size: 1.5rem;
+  text-decoration: underline;
+  text-align: right;
+}
+
+button {
+  border-radius: 5px;
+  background-color: lightgray;
+  border: 0px solid black;
+
+}
+
+.mainSection .halfWidth {
+  width: 50%;
 }

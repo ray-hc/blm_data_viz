@@ -3,7 +3,7 @@ import * as d3 from 'd3';
 
 const loadChart = (chartSelector, yAxisLabel, heightRatio) => {
   const margin = {
-    top: 40, right: 80, bottom: 60, left: 50,
+    top: 40, right: 80, bottom: 60, left: 80,
   };
   const width = 960 - margin.left - margin.right;
   const height = heightRatio * 960 - margin.top - margin.bottom;
@@ -57,7 +57,7 @@ const loadChart = (chartSelector, yAxisLabel, heightRatio) => {
   };
 };
 
-const appendData = (chartDetails, cols, filename, title) => {
+const appendData = (chartDetails, cols, filename, title, colors) => {
   const parseDate = d3.timeParse('%Y-%m-%d %H:%M:%S%Z'); // 2020-05-25 00:00:00-04:00
   const formatDate = d3.timeFormat('%b%d');
   const formatDateWithHr = d3.timeFormat('%b%d %H%p');
@@ -91,6 +91,8 @@ const appendData = (chartDetails, cols, filename, title) => {
         }
       });
     });
+
+    console.log(data);
 
     // Update domain, range accordingly.
     x.domain(
@@ -213,25 +215,31 @@ const appendData = (chartDetails, cols, filename, title) => {
           .select('circle.y')
           .attr('transform', `translate(${x(d.date)},${y(d[col])})`);
 
-        foci[idx]
-          .select('text.y1')
-          .attr('transform', `translate(${x(d.date)},${y(d[col])})`)
-          .text(`${d[col]} ${col}`);
+        if (cols.length === 1) {
+          foci[idx]
+            .select('text.y1')
+            .style('background-color', 'white')
+            .attr('transform', `translate(${x(d.date)},${y(d[col])})`)
+            .text(`${d[col]} ${col}`);
 
-        foci[idx]
-          .select('text.y2')
-          .attr('transform', `translate(${x(d.date)},${y(d[col])})`)
-          .text(`${d[col]} ${col}`);
+          foci[idx]
+            .select('text.y2')
+            .style('background-color', 'white')
+            .attr('transform', `translate(${x(d.date)},${y(d[col])})`)
+            .text(`${d[col]} ${col}`);
 
-        foci[idx]
-          .select('text.y3')
-          .attr('transform', `translate(${x(d.date)},${y(d[col])})`)
-          .text(formatDateWithHr(d.date));
+          foci[idx]
+            .select('text.y3')
+            .style('background-color', 'white')
+            .attr('transform', `translate(${x(d.date)},${y(d[col])})`)
+            .text(formatDateWithHr(d.date));
 
-        foci[idx]
-          .select('text.y4')
-          .attr('transform', `translate(${x(d.date)},${y(d[col])})`)
-          .text(formatDateWithHr(d.date));
+          foci[idx]
+            .select('text.y4')
+            .attr('transform', `translate(${x(d.date)},${y(d[col])})`)
+            .style('background-color', 'white')
+            .text(formatDateWithHr(d.date));
+        }
 
         foci[idx]
           .select('.x')

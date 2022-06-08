@@ -6,9 +6,10 @@ const Nav = (props) => {
     <nav>
       <ul>
         <li><NavLink to="/" exact>Introduction</NavLink></li>
-        <li><NavLink to="/findings">Key Findings</NavLink></li>
-        <li><NavLink to="/methods">Methods</NavLink></li>
-        <li><NavLink to="/related-work">Related Work</NavLink></li>
+        <li><NavLink to="/lit">Why Hashtags</NavLink></li>
+        <li><NavLink to="/findingsA">Overall Trends</NavLink></li>
+        <li><NavLink to="/findingsB">Trends Across US</NavLink></li>
+        <li><NavLink to="/findingsC">Social Contagion</NavLink></li>
         <li><NavLink to="/simulations">Simulations</NavLink></li>
       </ul>
     </nav>

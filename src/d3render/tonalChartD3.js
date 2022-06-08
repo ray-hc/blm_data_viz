@@ -1,7 +1,7 @@
 import * as Tone from 'tone';
 
 const blmCrowd = new Tone.Player({
-  url: '../../sounds/blm_crowd.mp3',
+  url: 'https://www.raycrist.com/pics/blm_crowd.mp3',
   loop: true,
 }).toDestination();
 
