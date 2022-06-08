@@ -41,5 +41,5 @@ After cloning the repository, run `npm install --all` to gather dependencies, th
     * One of my goals had been to demonstrate to users how, for example, tweaking the assumptions made in the simulations about how much people check Twitter, etc. would affect research results.
 
 ## Next Steps
-* This project still needs to be fleshed out and polished before it is ready to be shared widely. 
+* This project still needs to be fleshed out and polished before it is ready to be shared widely. This version ended up more of a "rough draft" than I'd like it to have been.
 * Over the next month, I plan to address the challenges / missing components as detailed above, for eventual wider sharing later this summer.
